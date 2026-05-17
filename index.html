@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pavan Kharsane | AWS DevOps Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav h2 {
+      color: #38bdf8;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: white;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #38bdf8;
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      background:
+        radial-gradient(circle at top right, #0ea5e9 0%, transparent 25%),
+        radial-gradient(circle at bottom left, #38bdf8 0%, transparent 25%),
+        #020617;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero h3 {
+      font-size: 30px;
+      color: #cbd5e1;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      line-height: 1.9;
+      font-size: 18px;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+      margin: 10px;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      background: white;
+    }
+
+    .btn-outline {
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-outline:hover {
+      background: #38bdf8;
+      color: #000;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 45px;
+      margin-bottom: 60px;
+      color: #38bdf8;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: #111827;
+      padding: 50px;
+      border-radius: 25px;
+      line-height: 1.9;
+      color: #d1d5db;
+      font-size: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 25px;
+    }
+
+    .skill-card {
+      background: #111827;
+      padding: 28px;
+      border-radius: 18px;
+      text-align: center;
+      transition: 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: #38bdf8;
+    }
+
+    .skill-card h4 {
+      font-size: 20px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: #111827;
+      padding: 35px;
+      border-radius: 25px;
+      transition: 0.3s;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card h3 {
+      color: #38bdf8;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .project-card p {
+      color: #d1d5db;
+      line-height: 1.8;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-box {
+      background: #111827;
+      padding: 45px;
+      border-radius: 25px;
+    }
+
+    .experience-box h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .experience-box h4 {
+      color: #38bdf8;
+      margin-bottom: 25px;
+    }
+
+    .experience-box ul {
+      padding-left: 20px;
+    }
+
+    .experience-box li {
+      margin-bottom: 16px;
+      color: #d1d5db;
+      line-height: 1.8;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: #d1d5db;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .social-links a {
+      background: #38bdf8;
+      color: #000;
+      padding: 15px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+      background: white;
+    }
+
+    .contact-details h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    .contact-details p {
+      margin-bottom: 20px;
+    }
+
+    .contact-details a {
+      color: #38bdf8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      background: #020617;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px) {
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero h3 {
+        font-size: 22px;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <h2>Pavan.</h2>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>Hello, I'm <span>Pavan Kharsane</span></h1>
+
+      <h3>AWS DevOps Engineer</h3>
+
+      <p>
+        DevOps Engineer with 3.7+ years of experience designing,
+        deploying, and managing highly available cloud infrastructure
+        on AWS for enterprise-scale applications and OTT streaming platforms.
+        Specialized in CI/CD pipelines, Kubernetes, Docker,
+        Terraform, GitHub Actions, monitoring, and cloud automation.
+      </p>
+
+      <a href="#contact" class="btn btn-primary">Hire Me</a>
+
+      <a href="https://github.com/PavanKharsane"
+         target="_blank"
+         class="btn btn-outline">
+        GitHub
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about">
+
+      <p>
+        I am currently working as a DevOps Engineer at Cognizant Technology India Pvt. Ltd.
+        with strong hands-on experience in AWS cloud infrastructure, CI/CD automation,
+        Kubernetes, Docker, Terraform, monitoring tools, Linux administration,
+        and production support.
+      </p>
+
+      <br>
+
+      <p>
+        I specialize in designing scalable cloud solutions,
+        automating deployments, managing production workloads,
+        implementing monitoring and observability systems,
+        and ensuring high availability with secure cloud practices.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">Technical Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card"><h4>AWS</h4></div>
+      <div class="skill-card"><h4>Docker</h4></div>
+      <div class="skill-card"><h4>Kubernetes</h4></div>
+      <div class="skill-card"><h4>Terraform</h4></div>
+      <div class="skill-card"><h4>Jenkins</h4></div>
+      <div class="skill-card"><h4>GitHub Actions</h4></div>
+      <div class="skill-card"><h4>Linux</h4></div>
+      <div class="skill-card"><h4>CI/CD</h4></div>
+      <div class="skill-card"><h4>Prometheus</h4></div>
+      <div class="skill-card"><h4>Grafana</h4></div>
+      <div class="skill-card"><h4>CloudWatch</h4></div>
+      <div class="skill-card"><h4>Shell Scripting</h4></div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects">
+
+      <div class="project-card">
+
+        <h3>Viacom Steady State</h3>
+
+        <p>
+          Architected and maintained scalable AWS infrastructure
+          across multiple Availability Zones using EC2, ECS,
+          EKS, Docker, Kubernetes, and Terraform.
+          Implemented CI/CD automation and secure cloud networking.
+        </p>
+
+      </div>
+
+      <div class="project-card">
+
+        <h3>CI/CD Pipeline Automation</h3>
+
+        <p>
+          Built and managed automated deployment pipelines using
+          Jenkins and GitHub Actions to improve deployment
+          reliability and accelerate software releases.
+        </p>
+
+      </div>
+
+      <div class="project-card">
+
+        <h3>Cloud Monitoring & Observability</h3>
+
+        <p>
+          Implemented monitoring and alerting systems using
+          CloudWatch, Prometheus, Grafana, New Relic,
+          and ELK Stack for proactive incident management.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <h2 class="section-title">Experience</h2>
+
+    <div class="experience-box">
+
+      <h3>DevOps Engineer</h3>
+
+      <h4>COGNIZANT TECHNOLOGY INDIA PVT. LTD. | July 2022 - Present</h4>
+
+      <ul>
+
+        <li>
+          Designed and maintained highly available AWS cloud infrastructure.
+        </li>
+
+        <li>
+          Managed Docker and Kubernetes based containerized environments.
+        </li>
+
+        <li>
+          Automated infrastructure provisioning using Terraform and CloudFormation.
+        </li>
+
+        <li>
+          Implemented monitoring solutions using Grafana, Prometheus, and CloudWatch.
+        </li>
+
+        <li>
+          Worked on production incident management and root cause analysis.
+        </li>
+
+        <li>
+          Collaborated with development and QA teams for zero downtime deployments.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <h2 class="section-title">Let's Connect</h2>
+
+    <p>
+      Open to AWS DevOps, Cloud Infrastructure,
+      Automation, and Platform Engineering opportunities.
+    </p>
+
+    <div class="social-links">
+
+      <a href="https://github.com/PavanKharsane" target="_blank">
+        GitHub
+      </a>
+
+      <a href="https://www.linkedin.com/in/pavan-kharsane-241b96220"
+         target="_blank">
+        LinkedIn
+      </a>
+
+      <a href="mailto:pavan.kharsane09@gmail.com">
+        Email Me
+      </a>
+
+    </div>
+
+    <div class="contact-details">
+
+      <h3>Email</h3>
+
+      <p>
+        <a href="mailto:pavan.kharsane09@gmail.com">
+          pavan.kharsane09@gmail.com
+        </a>
+      </p>
+
+      <h3>Mobile</h3>
+
+      <p>
+        +91 8412975127
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Pavan Kharsane | AWS DevOps Engineer Portfolio
+
+  </footer>
+
+</body>
+
+</html>
